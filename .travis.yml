@@ -1,5 +1,5 @@
 language: android
-dist: trusty
+dist: xenial
 before_install:
   - yes | sdkmanager "platforms;android-30"
 before_script:
