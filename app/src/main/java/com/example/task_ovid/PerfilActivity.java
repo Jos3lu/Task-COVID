@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.task_ovid.menu.MenuNavigation;
+
 public class PerfilActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
 private ImageView imagenPerfil;
@@ -44,26 +46,8 @@ private ImageView imagenPerfil;
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            int id = item.getItemId();
-            if(R.id.main==id) {
-                Intent intent= new Intent(this,MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivityIfNeeded(intent, 0);
-            }else if (R.id.Perfil==id) {
-                Intent intent = new Intent(this, PerfilActivity.class);
-                startActivity(intent);
-            }else if (R.id.Tienda== id) {
-                Intent intent= new Intent(this,TiendaBeta.class);
-                startActivity(intent);
-            }else if (R.id.menuAyuda == id) {
-                Intent intent= new Intent(this,menuAyuda.class);
-                startActivity(intent);
-            }else if(R.id.Salir==id) {
-                finishAffinity();
-            }
-
+            new MenuNavigation().navigate(item, this);
             return super.onOptionsItemSelected(item);
-
         }
 
 
